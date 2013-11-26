@@ -1,7 +1,7 @@
 var assert = require('assert'),
 TestRunner = require('assert-runner');
 
-var tests = {
+var parseIntTests = {
 		"Test that the default radix is 10": function(){
 			var sIn = "1234";
 			var nIn = parseInt(sIn);
@@ -37,4 +37,4 @@ var tests = {
 		
 };
 
-new TestRunner(tests).again(0);
+new TestRunner(parseIntTests).again(0);
