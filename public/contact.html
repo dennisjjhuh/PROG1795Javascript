@@ -1,0 +1,65 @@
+<!Doctype html>
+<html>
+<body>
+<div class="container">
+	<h1>Contact Ben</h1>
+	
+	<form id="contact" action="emailjs/" method="post">
+	<p>
+	<label for="from">from:</label><br />
+	<input type="email" name="from" placeholder="email where Ben can get back to you" required="required" />
+	</p> 
+	<p>
+	<label for="subject">subject:</label><br />
+	<input type="text" name="subject" placeholder="subject of your inquiry" required="required" />
+	</p> 
+	<p>
+	<label for="text">message:</label><br />
+	<textarea name="text" placeholder="your message for Ben" required="required"></textarea>
+	</p>
+	<p>
+	<label for="moreInfo">Please send me more information:</label><br />
+	<input type="checkbox" name="moreInfo" checked="checked" />
+	</p> 
+	<button type="submit" class="btn btn-primary" name="submit">Contact Ben</button>
+	</form>
+</div>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript">
+
+var getFormData = function(aInputs){
+	// we will return an object that is representative of what would be in a post
+	var oFormData = {};
+	// go through each of the controls ... passed in because there may be special circumstances
+	for(var i = 0; i < aInputs.length; i++){
+		//make our controls be jQuery
+		var oControl = jQuery(aInputs[i]);
+		//checkbox .val doesn't give us what we need here
+		if(oControl.attr('type') == 'checkbox'){
+			if(oControl.attr('checked')){
+				// just set value to Yes
+				oFormData[oControl.attr('name')] = 'Yes';
+			}
+		}else{
+			// set value to contents of control
+			oFormData[oControl.attr('name')] = oControl.val();
+		}
+	}
+	return(oFormData);
+}
+
+jQuery("document").ready(function(){
+	jQuery("form#contact").submit(function(){
+		//get all of the inputs
+		var aInputs = jQuery(this).find("input");
+		//add the text area
+		aInputs.push(jQuery(this).find("textarea"));
+		//call our nifty function
+		var oFormData = getFormData(aInputs);
+		console.log(oFormData);
+		return(false);
+	});
+});
+</script>
+</body>
+</html>
