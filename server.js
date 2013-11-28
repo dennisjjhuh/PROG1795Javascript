@@ -7,18 +7,18 @@ var app=express();
 //need simple dummy login for page 366 **** don't use this for a real login *****
 
 var login = function(req, res){
-	var password="secret";
-	var username="007";
+        var password="secret";
+        var username="007";
 
-	var user=req.param('username');
-	var pass=req.param('password');
+        var user=req.param('username');
+        var pass=req.param('password');
 
-	res.setHeader("Content-Type", "text/html");
-	if (user==username && pass==password) {
-	  res.end('pass');
-	} else {
-	  res.end('fail');
-	}
+        res.setHeader("Content-Type", "text/html");
+        if (user==username && pass==password) {
+         res.end('pass');
+        } else {
+         res.end('fail');
+        }
 
 };
 
@@ -28,12 +28,12 @@ app.post("/chapter11/login.php", login);
 
 //server everything index.html welcome file
 app.use(function(req, res){
-	res.sendfile(__dirname + '/public' + req._parsedUrl.path, function(err){
-		if(err){
-			console.log(err);
-			res.send(err.status, err.code);
-		}
-	});
+        res.sendfile(__dirname + '/public' + req._parsedUrl.path, function(err){
+                if(err){
+                        console.log(err);
+                        res.send(err.status, err.code);
+                }
+        });
 });
 
 
