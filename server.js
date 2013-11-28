@@ -22,8 +22,8 @@ var login = function(req, res){
 
 };
 
-app.get("/login.php", login);
-app.post("/login.php", login);
+app.get("/chapter11/login.php", login);
+app.post("/chapter11/login.php", login);
 
 //server everything (no welcome file)
 app.use(function(req, res){
