@@ -1,10 +1,10 @@
 //npm modules that also need to be in the package.json file
 var express = require('express');
 
-
+//factory for a new app
 var app=express();
 
-//need simple dummy login for page 366 **** don't use this for a real login
+//need simple dummy login for page 366 **** don't use this for a real login *****
 
 var login = function(req, res){
 	var password="secret";
@@ -22,10 +22,11 @@ var login = function(req, res){
 
 };
 
+// the dummy login needs to be there for a get or post request
 app.get("/chapter11/login.php", login);
 app.post("/chapter11/login.php", login);
 
-//server everything (no welcome file)
+//server everything index.html welcome file
 app.use(function(req, res){
 	res.sendfile(__dirname + '/public' + req._parsedUrl.path, function(err){
 		if(err){
