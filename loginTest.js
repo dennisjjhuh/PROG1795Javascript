@@ -8,7 +8,6 @@ var loginTest = {
 	},
 	"test of a bad login": function(){
 		var req = new TestRunner.TestRequest();
-		req.params = {};
 		req.params.username = "007";
 		req.params.password = "not this";
 		var res = new TestRunner.TestResponse();
