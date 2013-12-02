@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "assert-runner": "*",
-    "express": "*"
+    "express": "*",
+    "js-toolbox": "*"
   },
   "scripts": {
 	    "test": "./test.js"
