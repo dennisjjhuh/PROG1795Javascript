@@ -3,6 +3,7 @@ var express = require('express'),
 login = require('./login.js').login,
 webServer = require('./webServer.js').webServer,
 wowJobs = require('./wowJobs.js').wowJobs;
+wowJSON = require('./wowJSON.js').wowJSON;
 
 //factory for a new app
 var app=express();
@@ -14,7 +15,9 @@ app.post("/chapter11/login.php", login);
 
 /// make url for wow Jobs
 
-app.get("/wowJobs", wowJobs);
+app.get("/wowJobs", function(req, res){wowJobs(req, res);});
+
+app.get("/wowJSON", function(req, res){wowJSON(req, res);});
 
 //server everything index.html welcome file
 app.use(webServer);

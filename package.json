@@ -25,7 +25,8 @@
   "dependencies": {
     "assert-runner": "*",
     "express": "*",
-    "js-toolbox": "*"
+    "js-toolbox": "*",
+    "xml2js": "*"
   },
   "scripts": {
 	    "test": "./test.js"
