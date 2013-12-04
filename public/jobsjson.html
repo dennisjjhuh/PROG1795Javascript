@@ -1,0 +1,26 @@
+<!Doctype html>
+<html><body>
+<h1>JSON jobs</h1>
+<div class="jobs"></div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+<!-- underscore is used to render the template with the object from the api -->
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script id="jobTemplate" type="text/template">
+<p><a href="<%= link %>" ><%= title %></a></p>
+<p><%= author %></p>
+<p><%= description %></p>
+<hr />
+</script>
+<script type="text/javascript">
+jQuery("document").ready(function(){
+	var fTemplate = _.template(jQuery('#jobTemplate').html())
+	
+	jQuery.ajax("/wowJSON").done(function(oRSS){
+		oRSS.rss.channel[0].item.forEach(function(oItem){
+			jQuery(".jobs").append(fTemplate(oItem));
+		});
+	});	
+});
+</script>
+</body></html>
