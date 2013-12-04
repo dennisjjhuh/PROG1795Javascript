@@ -1,9 +1,9 @@
 var assert = require('assert');
 var TestRunner = require('assert-runner');
-var wowJSON = require('./wowJSON.js').wowJSON;
+var tumblr = require('./tumblr.js').tumblr;
 var jQuery = require('js-toolbox')._jQuery;
 
-var sJobs = null;
+var sPosts = null;
 
 var wowJSONTests = {
 		"simple passing test": function(){
@@ -12,17 +12,17 @@ var wowJSONTests = {
 		"test of retrieving JSON": function(done){
 			var req = new TestRunner.TestRequest();
 			var res = new TestRunner.TestResponse();
-			wowJSON(req, res, null, function(err){
+			tumblr(req, res, null, function(err){
 				assert(err == null);
 				assert(res.sBody != "");
-				sJobs = res.sBody;
+				sPosts = res.sBody;
 				done();
 			});
 		},
-		"test of parsing xml with my jQuery": function(){
-			var oItems = JSON.parse(sJobs);
-			oItems.forEach(function(oItem){
-				console.log(oItem.title);
+		"test of parsing JSON with my jQuery": function(){
+			var oPosts = JSON.parse(sPosts);
+			oPosts.posts.forEach(function(oPost){
+				console.log(oPost["regular-title"]);
 			});
 		}
 }
