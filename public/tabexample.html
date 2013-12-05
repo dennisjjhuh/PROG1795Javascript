@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css"
+	rel="stylesheet" />
+</head>
+<body>
+	<h1>The News</h1>
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#" name="today">Today</a></li>
+		<li><a href="#" name="yesterday">Yesterday</a></li>
+		<li><a href="#" name="1984">This day in 1984</a></li>
+		<li><a href="#" name="tomorrow">Tommorow</a></li>
+	</ul>
+	<div id="newsstory">This is where we see the latest news story</div>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script>
+		jQuery("document").ready(function() {
+			jQuery(".nav-tabs a").click(function() {
+				jQuery("#newsstory").load(this.name + ".html");
+			});
+		});
+	</script>
+
+</body>
+</html>

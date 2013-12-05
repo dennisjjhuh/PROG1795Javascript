@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<body>
+<h1>Wow Jobs in Kitchener</h1> 
+<div class="jobDisplay"></div>
+
+
+<!-- scripts at end of body -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript">
+jQuery("document").ready(function(){
+
+    jQuery.ajax("/wowJobs").done(function(sXML){
+        jQuery(sXML).find("item").each(function(){
+            jQuery(".jobDisplay").append(
+                    "<p><a href=\"#\">" + 
+                    jQuery(this).find("title").text() + "</p>"
+                    );            
+        });
+    })
+    .fail(function(err){
+        alert(err);
+    });
+});
+
+</script>
+</body>
+</html>
