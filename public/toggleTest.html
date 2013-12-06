@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+<head>
+<style>
+#faqs h2:before{
+content: "+";
+}
+#faqs h2.minus:before{
+content: "-";
+}
+</style>
+</head>
+<body>
+<div id="faqs">
+<h2>Why is this such a hard test?</h2>
+<p style="display:none">It seems unnecessarily hard because of the missing ) the q and the !isNaN. This toggle thing is actually kind of neat</p>
+<h2 class="minus">Will you adjust the marks?</h2>
+<p>It depends on the outcome of this example</p> 
+</div>
+
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+<script>
+jQuery("document").ready(function(){
+jQuery("#faqs h2").toggle(
+    function() {
+        jQuery(this).addClass("minus");
+        jQuery(this).next().show();
+    },
+    function() {
+        jQuery(this).removeClass("minus");
+        jQuery(this).next().hide();
+    }
+);
+});
+</script>
+</body></html>
