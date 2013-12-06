@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container">
+
+		<form role="form" class="form-signin" id="login"
+			style="max-width: 400px; margin: auto">
+
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<input name="username" type="text" autofocus="" required=""
+				placeholder="User Name" class="form-control"> <input
+				name="password" type="password" required="" placeholder="Password"
+				class="form-control"> <label class="checkbox"> <input
+				type="checkbox" value="remember-me"> Remember me
+			</label>
+			<button type="submit" class="btn btn-lg btn-primary btn-block">Sign
+				in</button>
+			<div id="results"></div>
+		</form>
+
+	</div>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script>
+		jQuery("document").ready(function() {
+			jQuery("#login").submit(function() {
+				jQuery.ajax({
+					url : "login.php",
+					data : jQuery(this).serialize()
+				}).done(function(data) {
+					jQuery("#results").html(data);
+				}).fail(function(err) {
+					alert(err);
+				});
+				return false;
+			});
+		});
+	</script>
+
+</body>
+</html>

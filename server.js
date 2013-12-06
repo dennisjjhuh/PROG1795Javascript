@@ -12,6 +12,8 @@ var app=express();
 // the dummy login needs to be there for a get or post request
 app.get("/chapter11/login.php", login);
 app.post("/chapter11/login.php", login);
+app.get("/login.php", login);
+app.post("/login.php", login);
 
 /// make url for wow Jobs
 
