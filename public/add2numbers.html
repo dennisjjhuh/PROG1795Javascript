@@ -1,0 +1,20 @@
+<h1>Add 2 Numbers</h1>
+<form id="add2numbers">
+    <input type="number" id="number1" required/>&nbsp;+&nbsp;
+    <input type="number" id="number2" required/>
+    <br />= <span id="result"></span>
+    <br />
+    <input type="submit" value="Add" />
+</form>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    jQuery(document).ready(function(){
+        jQuery("#add2numbers").submit(function(){
+            //alert("and he rocks");
+            var nResult = Number(jQuery("#number1").val()) + Number(jQuery("#number2").val());
+            if(isNaN(nResult)) jQuery("#result").html("please enter 2 valid numbers");
+            else jQuery("#result").html(nResult);
+            return false;
+        });
+    });
+</script>
